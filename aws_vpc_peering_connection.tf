@@ -1,12 +1,18 @@
 provider "aws" {
-    alias = "peer"
-    region = "{var.peer_region}"
+    alias   = "peer"
+    region  = "${var.peer_region}"
+
+    shared_credentials_file = "${var.peer_credentials}"
+}
+
+data "aws_region" "peer" {
+  provider = "aws.peer"
 }
 
 resource "aws_vpc_peering_connection" "peer_from_vpc" {
   peer_vpc_id   = "${data.aws_vpc.peer_to_vpc.id}"
   vpc_id        = "${data.aws_vpc.peer_from_vpc.id}"
-  peer_region   = "${var.peer_region}"
+  peer_region   = "${data.aws_region.peer.id}"
 
   auto_accept = false
 
