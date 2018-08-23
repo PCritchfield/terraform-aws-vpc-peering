@@ -28,6 +28,24 @@ variable "peer_to_vpc_id" {
   description = "The VPC ID to peer to."
 }
 
+variable "accepter_creds_file" {
+  type = "string"
+
+  description = "The credentials file to use for accepting the peering connection"
+}
+
+variable "accepter_region" {
+  type = "string"
+
+  description = "The region the accepting vpc is in"
+}
+
+variable "accepter_profile" {
+  type = "string"
+
+  description = "the profile to use for the accepter connection"
+}
+
 variable "peer_to_route_tables" {
   type = "list"
 
@@ -41,3 +59,10 @@ variable "auto_accept" {
 
   default = true
 }
+
+variable "peer_region" {
+  type = "string"
+
+  description = "The region of the vpc peering connection"
+}
+
