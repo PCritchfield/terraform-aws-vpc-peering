@@ -51,11 +51,13 @@ variable "peer_region" {
 variable "peer_profile" {
   type = "string"
 
-  descritption = "Profile to use for the peering conneciton"
+  description = "Profile to use for the peering conneciton"
 
   default = "default"
 }
 
 variable "peer_credentials" {
   type = "string"
+
+  description = "location of credentials file"
 }
