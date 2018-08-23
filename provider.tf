@@ -1,9 +1,9 @@
 provider "aws" {
     alias   = "peer"
-    region  = "${var.peer_region}"
-    profile = "${var.peer_profile}"
+    region  = "${var.peer_to_region}"
+    profile = "${var.peer_to_profile}"
 
-    shared_credentials_file = "${var.peer_credentials}"
+    shared_credentials_file = "${var.peer_to_credentials}"
 }
 
 data "aws_region" "peer" {
